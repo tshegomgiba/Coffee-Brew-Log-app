@@ -5,7 +5,8 @@
   "scripts": {
     "server": "nodemon backend/server.js",
     "client": "npm --prefix frontend run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm --prefix frontend run build"
   },
   "type": "module",
   "keywords": [],
@@ -13,7 +14,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "serverless-http": "^2.3.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.8.0"
