@@ -78,6 +78,7 @@ const AddBrew = () => {
           setCoffee({ ...coffee, waterGrams: e.target.value })
         }
         className="w-full border rounded-md p-2"
+        
       />
     </label>
   </div>

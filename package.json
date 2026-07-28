@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "client": "npm --prefix frontend run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "type": "module",
   "keywords": [],
@@ -11,11 +13,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "serverless-http": "^2.3.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.8.0"
   },
   "devDependencies": {
+    "concurrently": "^10.0.4",
     "nodemon": "^3.1.14"
   }
 }
