@@ -16,10 +16,21 @@ app.use("/api/brews", coffeeRoutes);
 
 if (process.env.NODE_ENV === "production") {
   const frontendBuildPath = path.resolve(__dirname, "../frontend/dist");
-  app.use(express.static(frontendBuildPath));
+
+  try {
+    app.use(express.static(frontendBuildPath));
+  } catch (error) {
+    console.warn("Frontend build folder not available yet:", error.message);
+  }
 
   app.get(/(.*)/, (req, res) => {
-    res.sendFile(path.join(frontendBuildPath, "index.html"));
+    const indexPath = path.join(frontendBuildPath, "index.html");
+
+    res.sendFile(indexPath, (err) => {
+      if (err) {
+        res.status(404).json({ message: "Frontend build not available yet." });
+      }
+    });
   });
 }
 
