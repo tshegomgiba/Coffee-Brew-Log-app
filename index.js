@@ -14,6 +14,11 @@ if (!fs.existsSync(frontendDistIndexPath)) {
   const buildResult = spawnSync(npmCommand, ["run", "build"], {
     cwd: __dirname,
     stdio: "inherit",
+    env: {
+      ...process.env,
+      NODE_ENV: "development",
+      npm_config_production: "false",
+    },
   });
 
   if (buildResult.status !== 0) {

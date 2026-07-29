@@ -6,7 +6,7 @@
     "server": "nodemon backend/server.js",
     "client": "npm --prefix frontend run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm install --prefix frontend && npm --prefix frontend run build",
+    "build": "npm --prefix frontend install --include=dev && npm --prefix frontend run build",
     "prestart": "npm run build",
     "start": "node index.js"
   },
