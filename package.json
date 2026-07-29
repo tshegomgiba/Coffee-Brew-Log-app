@@ -6,9 +6,8 @@
     "server": "nodemon backend/server.js",
     "client": "npm --prefix frontend run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm --prefix frontend run build",
-    "start": "node index.js",
-    "postinstall": "npm run build"
+    "build": "npm install --prefix frontend && npm --prefix frontend run build",
+    "start": "node index.js"
   },
   "type": "module",
   "engines": {
